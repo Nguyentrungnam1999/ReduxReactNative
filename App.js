@@ -2,14 +2,15 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { Provider, useDispatch, useSelector } from 'react-redux'
 
-import { store } from './src/app/store'
 import Counter from './src/features/counter/Counter'
+import AppNavigation from './src/navigation/AppNavigation'
+import store from './src/redux/store'
 
 const App = () => {
   console.log(store.getState())
   return (
     <Provider store={store}>
-      <Counter />
+      <AppNavigation />
     </Provider>
   )
 }
