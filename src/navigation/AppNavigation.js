@@ -5,12 +5,14 @@ import React from 'react'
 import ShoppingCartIcon from '../components/ShoppingCartIcon'
 import BooksScreen from '../screen/BooksScreen'
 import CartScreen from '../screen/CartScreen'
+import HomeScreen from '../screen/HomeScreen'
 
 export default function AppNavigation() {
   const stack = createNativeStackNavigator()
   return (
     <NavigationContainer>
       <stack.Navigator>
+        <stack.Screen name="Home" component={HomeScreen} />
         <stack.Screen
           name="Book"
           component={BooksScreen}

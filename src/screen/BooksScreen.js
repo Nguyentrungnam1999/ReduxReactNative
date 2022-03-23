@@ -11,8 +11,11 @@ import React from 'react'
 import Iconicons from 'react-native-vector-icons/Ionicons'
 import ShoppingCartIcon from '../components/ShoppingCartIcon'
 import { books } from '../utils/Data'
-import { ADD_TO_CART } from '../redux/CartItem'
-import { useDispatch } from 'react-redux'
+// import { ADD_TO_CART } from '../redux/CartItem'
+import { useDispatch, useSelector } from 'react-redux'
+import { incredement } from '../features/counter/counterSlice'
+import { ADD_TO_CART } from '../redux/reducer'
+import { useNavigation } from '@react-navigation/native'
 
 function Separator() {
   return <View style={{ borderBottomWidth: 1, borderBottomColor: '#a9a9a9' }} />
@@ -20,9 +23,19 @@ function Separator() {
 
 const BooksScreen = () => {
   const dispatch = useDispatch()
-  const addItemToCart = item => dispatch({ type: ADD_TO_CART, payload: item })
+  const navigation = useNavigation()
+  const addItemToCart = item => {
+    // console.log(dispatch(ADD_TO_CART({ item })))
+    dispatch(ADD_TO_CART(item))
+  }
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Home')
+        }}>
+        <Text>back to Book</Text>
+      </TouchableOpacity>
       <FlatList
         data={books}
         keyExtractor={item => item.id.toString()}

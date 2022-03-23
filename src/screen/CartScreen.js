@@ -8,19 +8,19 @@ import {
 } from 'react-native'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { REMOVE_FROM_CART } from '../redux/CartItem'
+import { REMOVE_FROM_CART } from '../redux/reducer'
 
 function Separator() {
   return <View style={{ borderBottomWidth: 1, borderBottomColor: '#a9a9a9' }} />
 }
 const CartScreen = () => {
-  const cartItems = useSelector(state => state)
+  const cartItems = useSelector(state => state.cart.list)
+  console.log(cartItems)
+
   const dispatch = useDispatch()
-  const removeItemFromCart = item =>
-    dispatch({
-      type: REMOVE_FROM_CART,
-      payload: item,
-    })
+  const removeItemFromCart = item => {
+    dispatch(REMOVE_FROM_CART(item))
+  }
   return (
     <View
       style={{

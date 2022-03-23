@@ -1,14 +1,16 @@
-// import { configureStore } from '@reduxjs/toolkit'
-// import counterSlice from '../features/counter/counterSlice'
+// import { createStore } from 'redux'
+// import cartItemReducer from './cartItemReducer'
 
-// export const store = configureStore({
-//   reducer: {
-//     counter: counterSlice,
-//   },
-// })
-import { createStore } from 'redux'
-import cartItemReducer from './cartItemReducer'
+import { configureStore } from '@reduxjs/toolkit'
+import cartItemReducer from '../redux/reducer'
 
-const store = createStore(cartItemReducer)
+// const store = createStore(cartItemReducer)
+
+// export default storee
+const store = configureStore({
+  reducer: {
+    cart: cartItemReducer,
+  },
+})
 
 export default store

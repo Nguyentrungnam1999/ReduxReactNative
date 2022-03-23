@@ -7,7 +7,7 @@ import AppNavigation from './src/navigation/AppNavigation'
 import store from './src/redux/store'
 
 const App = () => {
-  console.log(store.getState())
+  console.log(store)
   return (
     <Provider store={store}>
       <AppNavigation />

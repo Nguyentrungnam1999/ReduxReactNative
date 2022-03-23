@@ -1,12 +1,13 @@
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 
 const ShoppingCartIcon = props => {
   const navigation = useNavigation()
-  const cartItem = useSelector(state => state)
+  const cartItem = useSelector(state => state.cart.list.length)
+  console.log(cartItem)
   return (
     <TouchableOpacity
       onPress={() => {
@@ -14,9 +15,9 @@ const ShoppingCartIcon = props => {
       }}
       style={styles.button}>
       <View style={styles.itemCountContainer}>
-        <Text style={styles.itemCountText}>{cartItem.length}</Text>
+        <Text style={styles.itemCountText}>{cartItem}</Text>
       </View>
-      <Icon name="rocket" size={30} color="#101010" />
+      <FontAwesome name="shopping-cart" size={30} color="#101010" />
     </TouchableOpacity>
   )
 }
