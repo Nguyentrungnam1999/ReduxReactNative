@@ -2,6 +2,13 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   list: [],
+
+  user: {
+    email: '',
+    score: 0,
+    address: '',
+    id: '',
+  },
 }
 export const cartItemReducer = createSlice({
   name: 'cart',
@@ -15,6 +22,12 @@ export const cartItemReducer = createSlice({
       state.list = state.list.filter(
         cartItem => cartItem.id !== action.payload.id,
       )
+    },
+    updateID: (state, action) => {
+      state.user.id = action.payload
+    },
+    updateEmail: (state, action) => {
+      state.user.address = action.payload
     },
   },
 })

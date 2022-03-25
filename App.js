@@ -6,17 +6,20 @@ import Counter from './src/features/counter/Counter'
 import AppNavigation from './src/navigation/AppNavigation'
 import store from './src/redux/store'
 import GetData from './src/components/GetData'
+import Login from './src/screen/Login'
 
 const App = () => {
   // console.log(store)
   return (
-    // <Provider store={store}>
-    //   <AppNavigation />
-    // </Provider>
-    <View style={{ flex: 1 }}>
-      <Text>asd</Text>
-      <GetData />
-    </View>
+    <Provider store={store}>
+      {/* <AppNavigation /> */}
+      {/* <Login /> */}
+      <Counter />
+    </Provider>
+    // <View style={{ flex: 1 }}>
+    //   <Text>asd</Text>
+    //   <GetData />
+    // </View>
   )
 }
 
