@@ -11,7 +11,7 @@ export default function AppNavigation() {
   const stack = createNativeStackNavigator()
   return (
     <NavigationContainer>
-      <stack.Navigator>
+      <stack.Navigator initialRouteName="Book">
         <stack.Screen name="Home" component={HomeScreen} />
         <stack.Screen
           name="Book"
