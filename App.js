@@ -7,6 +7,7 @@ import AppNavigation from './src/navigation/AppNavigation'
 import store from './src/redux/store'
 import GetData from './src/components/GetData'
 import Login from './src/screen/Login'
+import Cats from './src/screen/Cats'
 
 const App = () => {
   // console.log(store)
@@ -14,7 +15,8 @@ const App = () => {
     <Provider store={store}>
       {/* <AppNavigation /> */}
       {/* <Login /> */}
-      <Counter />
+      {/* <Counter /> */}
+      <Cats />
     </Provider>
     // <View style={{ flex: 1 }}>
     //   <Text>asd</Text>

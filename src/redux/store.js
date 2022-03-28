@@ -5,7 +5,8 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import counterSlice from '../features/counter/counterSlice'
 import cartItemReducer from '../redux/reducer'
 import createSagaMiddleware from '@redux-saga/core'
-import rootSaga from './rootSaga'
+// import rootSaga from './rootSaga'
+import catSaga from './rootSaga'
 
 // const store = createStore(cartItemReducer)
 
@@ -19,6 +20,6 @@ const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(sagaMiddleware),
 })
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(catSaga)
 
 export default store

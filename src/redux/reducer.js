@@ -9,6 +9,10 @@ const initialState = {
     address: '',
     id: '',
   },
+  cats: {
+    listcat: [],
+    isLoading: false,
+  },
 }
 export const cartItemReducer = createSlice({
   name: 'cart',
@@ -29,8 +33,24 @@ export const cartItemReducer = createSlice({
     updateEmail: (state, action) => {
       state.user.address = action.payload
     },
+    loadingCat: state => {
+      state.cats.isLoading = true
+    },
+    getListCat: (state, action) => {
+      state.cats.listcat = action.payload
+      state.cats.isLoading = false
+    },
+    getCatFailure: state => {
+      state.cats.isLoading = false
+    },
   },
 })
 
-export const { ADD_TO_CART, REMOVE_FROM_CART } = cartItemReducer.actions
+export const {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  loadingCat,
+  getListCat,
+  getCatFailure,
+} = cartItemReducer.actions
 export default cartItemReducer.reducer
